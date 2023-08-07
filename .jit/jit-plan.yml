@@ -16,16 +16,23 @@ items:
   - name: Scan your infrastructure-as-code (IaC) for misconfigurations
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-iac-misconfiguration-detection.yml@latest
-  - name: Scan code for hard-coded secrets
-    uses: jitsecurity-controls/jit-plans/items/code/item-root-account-ir.yml@latest
-  - name: Scan code for hard-coded secrets
-    uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
-  - name: >
+  - name: >-
       IAM-011. Encrypt all end user/customer credentials and hash passwords at
       rest
     uses: >-
       jitsecurity-controls/jit-plans/items/identity_and_access_management/item-iam-encrypt-creds-at-rest.yml@latest
     input:
-      status: passed
       note: hjhgj
+      status: passed
+  - name: Scan code for hard-coded secrets
+    uses: jitsecurity-controls/jit-plans/items/code/item-root-account-ir.yml@latest
+  - name: Scan code for hard-coded secrets
+    uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
+  - name: |
+      CAA-006. Provide read-only access to external ID to customers
+    uses: >-
+      jitsecurity-controls/jit-plans/items/cross_account_access/item-cross-account-external-id-ro.yml@latest
+    input:
+      status: passed
+      note: kuku
 
