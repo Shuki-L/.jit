@@ -1,5 +1,6 @@
 name: My plan
 level: beginner
+update_id: 1cafc260-8f59-4465-8dbc-9390fa7071cd
 author: Jit
 version: 0.1
 owners:
@@ -9,35 +10,30 @@ references:
 tags: []
 items:
   - name: Scan your code for vulnerabilities (SAST)
-    uses: >-
-      jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
-  - name: >-
-      CAA-007. Provide guidance for creating cross-account roles with the
-      minimum required privileges
-    uses: >-
-      jitsecurity-controls/jit-plans/items/cross_account_access/item-cross-account-automation.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
+  - name: Scan your Dockerfiles for vulnerabilities
+    uses: jitsecurity-controls/jit-plans/items/infrastructure/item-container-scan.yml@latest
+  - name: CAA-007. Provide guidance for creating cross-account roles with the minimum required privileges
+
+    uses: jitsecurity-controls/jit-plans/items/cross_account_access/item-cross-account-automation.yml@latest
     input:
       note: dd
       status: passed
   - name: CAA-006. Provide read-only access to external ID to customers
-    uses: >-
-      jitsecurity-controls/jit-plans/items/cross_account_access/item-cross-account-external-id-ro.yml@latest
+
+    uses: jitsecurity-controls/jit-plans/items/cross_account_access/item-cross-account-external-id-ro.yml@latest
     input:
       note: kuku
       status: passed
   - name: Scan your code dependencies for vulnerabilities (SCA)
     uses: jitsecurity-controls/jit-plans/items/code/item-dependency-check.yml@latest
   - name: Scan Kubernetes configuration files
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-iac-kubernetes.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/infrastructure/item-iac-kubernetes.yml@latest
   - name: Scan your infrastructure-as-code (IaC) for misconfigurations
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-iac-misconfiguration-detection.yml@latest
-  - name: >-
-      IAM-011. Encrypt all end user/customer credentials and hash passwords at
-      rest
-    uses: >-
-      jitsecurity-controls/jit-plans/items/identity_and_access_management/item-iam-encrypt-creds-at-rest.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/infrastructure/item-iac-misconfiguration-detection.yml@latest
+  - name: IAM-011. Encrypt all end user/customer credentials and hash passwords at rest
+
+    uses: jitsecurity-controls/jit-plans/items/identity_and_access_management/item-iam-encrypt-creds-at-rest.yml@latest
     input:
       note: hjhgj
       status: passed
@@ -45,7 +41,3 @@ items:
     uses: jitsecurity-controls/jit-plans/items/code/item-root-account-ir.yml@latest
   - name: Scan code for hard-coded secrets
     uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
-  - name: Scan your Dockerfiles for vulnerabilities
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-container-scan.yml@latest
-
