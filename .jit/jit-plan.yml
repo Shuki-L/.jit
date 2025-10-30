@@ -1,6 +1,5 @@
 name: My plan
 level: beginner
-update_id: 5ee2001f-042d-404f-87ab-968ea144c25f
 author: Jit
 version: 0.1
 owners:
@@ -9,5 +8,17 @@ references:
   - https://www.jit.io
 tags: []
 items:
+  - name: Confirm your hosting model
+    uses: >-
+      jitsecurity-controls/jit-plans/items/partner_hosted/item-partner-hosting-model.yml@latest
   - name: Scan your code for vulnerabilities (SAST)
-    uses: jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
+    uses: >-
+      jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
+override:
+  workflows:
+    sast:
+      jobs:
+        static-code-analysis-python-semgrep:
+          enabled: true
+        static-code-analysis-semgrep-pro:
+          enabled: false
